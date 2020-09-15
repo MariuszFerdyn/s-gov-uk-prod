@@ -7,8 +7,7 @@ sudo apt-get install python-pip -y
 sudo apt-get update && sudo apt-get install curl git -y
 
 if [ -x "$(command -v docker)" ]; then
-    echo "docker exists"
-    # command
+    echo "docker exists, skipping installation"
 else
     echo "Install docker"
     curl -fsSL https://get.docker.com -o get-docker.sh

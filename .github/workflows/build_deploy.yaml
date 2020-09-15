@@ -22,7 +22,7 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.EC2_AUTH }}
           source: "deploy.sh"
-          target: "/tmp/deploy.sh"
+          target: "/tmp/"
 
       - name: write key to local
         env:
@@ -36,4 +36,5 @@ jobs:
             HOST: ${{ secrets.HOST }}
         run:
           echo "connecting to remote vm"
-          ssh -i key.pem $USERNAME@${HOST} bash -c "ls -l /home/ubuntu"
+          ssh -o StrictHostKeyChecking=no -i key.pem $USERNAME@${HOST} bash -c "echo hey >> /tmp/check.txt && chmod +x /tmp/deploy.sh && /tmp/deploy.sh"
+          echo "deployment completed"
