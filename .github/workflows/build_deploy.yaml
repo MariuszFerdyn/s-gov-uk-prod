@@ -28,7 +28,7 @@ jobs:
         env:
           KEY: ${{ secrets.EC2_AUTH }}
         run:
-          cat ${KEY} > key.pem
+          echo ${KEY} > key.pem
 
       - name: deploy reverse proxy icap
         env:
