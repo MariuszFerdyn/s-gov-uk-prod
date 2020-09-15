@@ -1,0 +1,39 @@
+name: build_deploy
+
+on:
+  push:
+    branches:
+    - master
+    - develop
+
+jobs:
+  build_deploy:
+    name: build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: copy file via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.EC2_AUTH }}
+          source: "deploy.sh"
+          target: "/tmp/deploy.sh"
+
+      - name: write key to local
+        env:
+          KEY: ${{ secrets.EC2_AUTH }}
+        run:
+          cat ${KEY} > key.pem
+
+      - name: deploy reverse proxy icap
+        env:
+            USERNAME: ${{ secrets.USERNAME }}
+            HOST: ${{ secrets.HOST }}
+        run:
+          echo "connecting to remote vm"
+          ssh -i key.pem $USERNAME@${HOST} bash -c "ls -l /home/ubuntu"
