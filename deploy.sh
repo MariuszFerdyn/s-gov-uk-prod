@@ -1,11 +1,9 @@
 #!/bin/bash
-apt-get update
-echo "Install package manager for Python packages"
-sudo apt-get install python-pip -y
+
+sudo apt-get update
+sudo apt-get install python-pip curl git -y
 
 # install docker does not exists
-sudo apt-get update && sudo apt-get install curl git -y
-
 if [ -x "$(command -v docker)" ]; then
     echo "docker exists, skipping installation"
 else
@@ -25,6 +23,7 @@ sudo cp  revproxy.tar.gz ~/
 cd /home/ubuntu/
 sudo tar xzvf revproxy.tar.gz
 cd reverse-proxy-icap-docker
+
 # stop docker containers
 sudo docker-compose down
 
