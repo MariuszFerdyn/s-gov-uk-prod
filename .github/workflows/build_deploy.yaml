@@ -24,7 +24,7 @@ jobs:
           source: "deploy.sh"
           target: "/tmp/"
 
-      - name: executing remote ssh commands using password
+      - name: deploy reverse proxy icap
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
