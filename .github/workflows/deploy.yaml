@@ -1,4 +1,4 @@
-name: build_deploy
+name: deploy
 
 on:
   push:
@@ -7,14 +7,14 @@ on:
     - develop
 
 jobs:
-  build_deploy:
-    name: build and deploy
+  deploy:
+    name: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: copy file via ssh key
+      - name: copy deployment script to remote server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
