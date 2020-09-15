@@ -24,17 +24,15 @@ jobs:
           source: "deploy.sh"
           target: "/tmp/"
 
-      - name: write key to local
-        env:
-          KEY: ${{ secrets.EC2_AUTH }}
-        run:
-          echo ${KEY} > key.pem
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_AUTH }}
+          port: ${{ secrets.PORT }}
+          script: |
+            echo hey >> /tmp/check.txt 
+            chmod +x /tmp/deploy.sh
+            /tmp/deploy.sh
 
-      - name: deploy reverse proxy icap
-        env:
-            USERNAME: ${{ secrets.USERNAME }}
-            HOST: ${{ secrets.HOST }}
-        run:
-          echo "connecting to remote vm"
-          ssh -o StrictHostKeyChecking=no -i key.pem $USERNAME@${HOST} bash -c "echo hey >> /tmp/check.txt && chmod +x /tmp/deploy.sh && /tmp/deploy.sh"
-          echo "deployment completed"
