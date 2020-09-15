@@ -20,7 +20,7 @@ rm -rf /tmp/k8-ova
 git clone https://github.com/filetrust/k8-ova.git /tmp/k8-ova
 cd /tmp/k8-ova/Release01/
 sudo cp  revproxy.tar.gz ~/
-cd /home/ubuntu/
+cd ~/
 sudo tar xzvf revproxy.tar.gz
 cd reverse-proxy-icap-docker
 
