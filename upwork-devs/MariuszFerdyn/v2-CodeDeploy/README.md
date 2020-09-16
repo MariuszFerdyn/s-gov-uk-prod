@@ -1,6 +1,6 @@
 ### RELEASE Candidate 1 AWS CodeDeploy CI/CD Concept
 
-**Create EC2 instance that will be destination server*
+**Create EC2 instance that will be destination server**
 
 - AMI: Ubuntu Server 18.04 LTS (HVM)
 - Type: t2.micro
