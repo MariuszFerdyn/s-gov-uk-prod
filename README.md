@@ -7,4 +7,3 @@
 4. EC2_AUTH - Private key to authenticate to VM
 
 ## Once the code is merged to master branch, reverse proxy solution will be deployed to the server.
-
