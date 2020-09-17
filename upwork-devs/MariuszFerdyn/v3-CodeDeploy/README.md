@@ -9,7 +9,7 @@ To use the GitHub repository as a source of the application you must first imple
 - Enter the GitHub user name you used to sign in and choose Connect to GitHub
 - Authorise Access
 - Select Repository name e.g.: MariuszFerdyn/s-gov-uk-prod
-- enter Commit ID - e.g. 55e4ec3c9beaed63d5db34bbde0cec61cf02742f
+- enter Commit ID - e.g. 6f9bbec63e758f7da2fd22cdf5616403ca7e71b7
 - add Deployment Description e.g. First Deployment from GitHub
 - check Don't fail the deployment to an instance if this lifecycle event on the instance fails
 - Select Overwrite the content
