@@ -116,7 +116,7 @@ aws deploy push --application-name ReverseProxy_App --s3-location s3://codedeplo
 
 
 
-**Prepare Developer machine**
+**Troubleshooting**
 
 On destination instances:
 
