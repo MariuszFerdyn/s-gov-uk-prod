@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: 'Pass destroy as action to delete infra'
+        description: "Pass input as 'destroy' to delete infra"
         required: true
         default: 'plan'
 
