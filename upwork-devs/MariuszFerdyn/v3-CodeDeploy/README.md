@@ -1,4 +1,4 @@
-### RELEASE Candidate 1 AWS CodeDeploy CI/CD Concept with GitHub integration
+### RELEASE Candidate 1 AWS Code Deploy CI/CD Concept with GitHub integration
 
 To use the GitHub repository as a source of the application you must first implement v2-CodeDeploy:
 
@@ -19,7 +19,13 @@ To use the GitHub repository as a source of the application you must first imple
 
 On destination instances:
 
+
+``` bash
+tail -f /var/log/aws/codedeploy-agent/codedeploy-agent.log
+```
+
 ``` bash
 cd /opt/reverse-proxy/upwork-devs/MariuszFerdyn/v3-CodeDeploy/reverse-proxy-codedeploy/reverse-proxy-icap-docker
 sudo docker-compose ps
 ```
+
